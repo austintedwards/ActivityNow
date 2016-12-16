@@ -117,7 +117,7 @@ $(function(){
       activity = "snow sports";
    }
    $.ajax({
-             url: "https://trailapi-trailapi.p.mashape.com/?lat="+spot.lat+"&lon="+spot.lng+"&q[activities_activity_type_name_eq]="+activity+"&q[state_cont]="+state+"&radius=30",
+             url: "https://trailapi-trailapi.p.mashape.com/?lat="+spot.lat+"&lon="+spot.lng+"&q[activities_activity_type_name_eq]="+activity+"&q[state_cont]="+state+"&radius=100",
              type: 'GET',
              dataType: 'json',
              headers: {
@@ -140,9 +140,11 @@ $(function(){
       obj.lng = now.lon;
       obj.city = now.city;
       obj.state = now.state;
+      obj.link = now.activities[0].url;
       active.push(obj);
     }
-    distance(active,spot)
+    console.log(active[0].link);
+    distance(active,spot);
   }
 //finding the closest parks
  function distance(activeSpots,spot){
@@ -180,7 +182,7 @@ $(function(){
 }
 //List making
 function activityList(activeSpots,i){
-    var li = $("<ol>"+(i+1)+". <a href='https://www.google.com/maps/search/"+activeSpots[i].name+"/"+activeSpots[i].lat+","+activeSpots[i].lng+",17z'target='_blank'>"+activeSpots[i].name+"</a></ol>");
+    var li = $("<ol>"+(i+1)+". <a href='"+activeSpots[i].link+"'  target='_blank'>"+activeSpots[i].name+"</a></ol>");
     $(".campList").append(li);
 }
 
@@ -274,7 +276,7 @@ function mapLoad(activeSpots){
           if (lngDif[i] > -0.01 && lngDif[i] < 0.01 && latDif[i] > -0.01 && latDif[i] < 0.01){
             var popup = new mapboxgl.Popup({closeOnClick: true})
                 .setLngLat([activeSpots[i].lng, activeSpots[i].lat])
-                .setHTML("<a href='https://www.google.com/maps/search/"+activeSpots[i].name+"/"+activeSpots[i].lat+","+activeSpots[i].lng+",17z'target='_blank'>"+activeSpots[i].name+"</a>")
+                .setHTML("<a href='"+activeSpots[i].link +"'  target='_blank'>"+activeSpots[i].name+"</a>")
                 .addTo(map);
             }else{
 
