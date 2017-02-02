@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js"></script>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="app.js"></script>
+<link rel="shortcut icon" href="campgroundnow.png" type="image/png">
 <title>Activity Now</title>
 </head>
 <style>
@@ -19,7 +20,7 @@
 <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-<div class="container" class = "main">
+<div class="container main">
 <div id="mySidenav" class="sidenav">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
@@ -29,7 +30,7 @@
 </a>
 </div>
 
-<div class="container" class = "searching">
+<div class="container searching">
 <form action = "index.html" method = "get" class = "input">
 <br><input type = "image" src = "https://jaumemitjans.files.wordpress.com/2013/03/icon-location-in-blue.png" name = "GPS" id = "GPS" />
 <input type = "text" name = "location" placeholder = "Click GPS or Input Town" id = "location">
@@ -37,28 +38,28 @@
 </form>
 </div>
 
-<div class="container" class = "checklist">
-<form action = "index.html" method = "get" class = "checklist" class="center-align">
+<div class="container checklist">
+<form action = "index.html" method = "get" class = "checklist">
 <a id= "camping" class="waves-effect waves-orange btn-flat">
-  <img class = "camping" id ="fire" src="fire.png"/>
+  <img class = "camping fire" src="fire.png"/>
   Camping
 </a>
 <a id= "hiking" class="waves-effect waves-orange btn-flat">
-  <img class = "hiking" id="fire"  src="log.png"/>
+  <img class = "hiking fire"  src="log.png"/>
   Hiking
 </a>
 <a id= "sking" class="waves-effect waves-orange btn-flat">
-  <img class = "sking" id="fire" src="log.png"/>
+  <img class = "sking fire" src="log.png"/>
   Snow Sports
 </a>
 <a id= "biking" class="waves-effect waves-orange btn-flat">
-  <img class = "biking" id="fire" src="log.png"/>
+  <img class = "biking fire" src="log.png"/>
   Mountain Biking Trails
 </a>
 </form>
 </div>
 
-<div class="container" class = "checklist">
+<div class="container checklist">
 
 <div class="col s4">
 <p class = "list">Campground List:</p>
@@ -75,7 +76,7 @@
 <span style="font-size:15px;cursor:pointer;font-family: 'Woody';color: saddlebrown;" onclick="openNav()">&#9776; open</span>
 
 
-<div id='map' style='width: 1270px; height: 667.25px; background-size: 100% 100%;'></div>
+<div id="map"></div>
 
 
 
